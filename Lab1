@@ -1,0 +1,131 @@
+include <iostream>
+using namespace std;
+sstruct node{
+	int data;
+	node* next;
+};
+class list{
+	node*head;
+	node*tail;
+	public:
+		list(){
+			head = NULL;
+			tail = NULL;
+		}
+		void insert(int value){
+			node*temp = NULL;
+			temp->data = value;
+			if(head == NULL){
+				head = temp;
+				tail = temp;
+				temp->next = NULL;
+			}
+			else{
+				tail->next = temp;
+				temp->next = NULL;
+				tail = temp;
+			}
+		}
+		void insertAt(int pos,int value){
+			int i = 1;
+			node*temp;
+			temp->data = value;
+			node*curr = NULL;
+			node*prev = NULL;
+			curr = head;
+			for(i=1;i<pos;i++){
+				prev = curr;
+				curr = curr->next;
+			}
+			if(prev == NULL)
+			cout<<"There are not that many elements in the list\n";
+			else
+			prev->next = temp;
+			temp->next = curr;
+			
+		}
+		void Delete(){
+			node*prev = NULL;
+			node*curr = NULL;
+			curr = head;
+			while(curr->next != NULL){
+				prev = curr;
+				curr = curr->next;
+			}
+			tail = prev;
+			prev->next = NULL;
+			delete curr;
+		}
+		void DeleteAt(int pos){
+			int i = 1;
+			node*prev = NULL;
+			node*curr = NULL;
+			curr = head;
+			for(i=1;i<pos;i++){
+				prev = curr;
+				curr = curr->next;
+			}
+			prev->next = curr->next;
+			delete curr;
+		}
+		void countItems(){
+			int i = 0;
+			node*temp = NULL;
+			temp = head;
+			while(temp!=NULL){
+				i++;
+				temp = temp->next;
+			}
+			cout<<"Number of items in the list are = "<<i<<endl;
+		}
+		void display(){
+			node*temp = NULL;
+			temp = head;
+			while(temp!=NULL){
+				cout<<temp->data<<" -> ";
+				temp = temp->next;
+			}
+		}
+};
+int main(){
+	list ob;
+	int i = 0;
+	int j = 1;
+	cout<<"Press 1 to insert node at the end, press 2 to insert node in the middle, press 3 to delete last node, press 4 to delete node in the middle, press 5 to find out the number of elements in the list, press 6 for display, press 7 to exit \n";
+	while(j != 0){
+		cin>>i;
+		if(i == 1){
+			int val = 0;
+			cout<<"Enter value of node\n";
+			cin>>val;
+			ob.insert(val);
+		}
+		if(i == 2){
+			int val,p = 0;
+			cout<<"Enter the value of node\n";
+			cin>>val;
+			cout<<"Enter the position of node\n";
+			cin>>p;
+			ob.insertAt(pos,val);
+		}
+		if(i == 3){
+			ob.Delete();
+		}
+		if(i == 4){
+			int p = 0;
+			cout<<"Enter the position\n";
+			cin>>p;
+			ob.DeleteAt(p);
+		}
+		if(i == 5){
+			ob.countItems();
+		}
+		if(i == 6){
+			cout<<"The items in the list are:\n";
+			ob.display();
+		}
+		if(i == 7){
+			j == 0;
+		}
+	}
+}
