@@ -1,20 +1,20 @@
 include <iostream>
 using namespace std;
-sstruct node{
+struct node{
 	int data;
 	node* next;
-};
+};//creating data structure of node type
 class list{
-	node*head;
+	node*head;//head and tail pointers declared
 	node*tail;
 	public:
 		list(){
 			head = NULL;
 			tail = NULL;
-		}
+		}//default constructor pointing both head and tail pointers to NULL
 		void insert(int value){
 			node*temp = NULL;
-			temp->data = value;
+			temp->data = value;//assigning value od data element of node temp to integer value input by user
 			if(head == NULL){
 				head = temp;
 				tail = temp;
@@ -26,11 +26,12 @@ class list{
 				tail = temp;
 			}
 		}
-		void insertAt(int pos,int value){
-			int i = 1;
+		void insertAt(int pos,int value)//pos = position specified by user, value = value od data specified by user
+		{
+			int i = 1;//keeps track of position
 			node*temp;
 			temp->data = value;
-			node*curr = NULL;
+			node*curr = NULL;//nodes that keep track of position in list
 			node*prev = NULL;
 			curr = head;
 			for(i=1;i<pos;i++){
@@ -88,9 +89,9 @@ class list{
 		}
 };
 int main(){
-	list ob;
-	int i = 0;
-	int j = 1;
+	list ob;//object of list type declared
+	int i = 0;//to indicate which function user wants performed
+	int j = 1;//to terminate while loop when user desires an exit
 	cout<<"Press 1 to insert node at the end, press 2 to insert node in the middle, press 3 to delete last node, press 4 to delete node in the middle, press 5 to find out the number of elements in the list, press 6 for display, press 7 to exit \n";
 	while(j != 0){
 		cin>>i;
