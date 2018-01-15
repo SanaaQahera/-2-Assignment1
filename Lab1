@@ -13,7 +13,7 @@ class list{
 			tail = NULL;
 		}//default constructor pointing both head and tail pointers to NULL
 		void insert(int value){
-			node*temp = NULL;
+			node*temp = new node;
 			temp->data = value;//assigning value od data element of node temp to integer value input by user
 			if(head == NULL){
 				head = temp;
@@ -29,7 +29,7 @@ class list{
 		void insertAt(int pos,int value)//pos = position specified by user, value = value od data specified by user
 		{
 			int i = 1;//keeps track of position
-			node*temp;
+			node*temp = new node;
 			temp->data = value;
 			node*curr = NULL;//nodes that keep track of position in list
 			node*prev = NULL;
