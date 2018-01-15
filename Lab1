@@ -92,8 +92,9 @@ int main(){
 	list ob;//object of list type declared
 	int i = 0;//to indicate which function user wants performed
 	int j = 1;//to terminate while loop when user desires an exit
-	cout<<"Press 1 to insert node at the end, press 2 to insert node in the middle, press 3 to delete last node, press 4 to delete node in the middle, press 5 to find out the number of elements in the list, press 6 for display, press 7 to exit \n";
+	
 	while(j != 0){
+	cout<<"Press 1 to insert node at the end, press 2 to insert node in the middle, press 3 to delete last node, press 4 to delete node in the middle, press 5 to find out the number of elements in the list, press 6 for display, press 7 to exit \n";
 		cin>>i;
 		if(i == 1){
 			int val = 0;
